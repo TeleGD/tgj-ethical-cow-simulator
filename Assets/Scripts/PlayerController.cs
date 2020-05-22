@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody body;
     public float speed = 20;
     public float friction = 10;
-    private GameObject grabbedCow;
+    private Rigidbody grabbedCow;
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
                     float dist = Vector3.SqrMagnitude(transform.position - cows[i].transform.position);
                     if (dist < nearestDist)
                     {
-                        grabbedCow = cows[i];
+                        grabbedCow = cows[i].GetComponent<Rigidbody>();
                         dist = nearestDist;
                     }
                 }
@@ -57,8 +57,13 @@ public class PlayerController : MonoBehaviour
 
         if(grabbedCow != null)
         {
-            Vector3 cowDir = (transform.position - grabbedCow.transform.position);
-            grabbedCow.GetComponent<Rigidbody>().AddForce(cowDir * cowDir.magnitude * 10);
+            Vector3 cowDir = transform.position - grabbedCow.transform.position;
+            if(cowDir.sqrMagnitude > 2)
+            {
+                grabbedCow.AddForce(cowDir.normalized * speed);
+                grabbedCow.AddForce(FlattenVector(-grabbedCow.velocity * friction));
+            }
+            
         }
     }
 
