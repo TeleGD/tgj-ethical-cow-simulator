@@ -27,6 +27,8 @@ public class CowIA : MonoBehaviour
 		{
 			yield return new WaitForSeconds(Random.Range(20, 60) / 15f);
 			rb.AddForce(new Vector3(Random.Range(-100, 100) / 100f, 2, Random.Range(-100, 100) / 100f) * 100);
+			GetComponent<AudioSource>().pitch = Random.Range(80, 120) / 100f;
+			GetComponent<AudioSource>().Play();
 		}
 	}
 
