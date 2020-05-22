@@ -12,11 +12,15 @@ public class CowIA : MonoBehaviour
 		StartCoroutine(RepeatJump());
 	}
 
-	IEnumerator RepeatJump()
+	private void Update()
+	{
+	}
+
+		IEnumerator RepeatJump()
 	{
 		while (true)
 		{
-			yield return new WaitForSeconds(Random.Range(20, 60) / 10f);
+			yield return new WaitForSeconds(Random.Range(20, 60) / 15f);
 			rb.AddForce(new Vector3(Random.Range(-100, 100) / 100f, 2, Random.Range(-100, 100) / 100f) * 100);
 		}
 	}

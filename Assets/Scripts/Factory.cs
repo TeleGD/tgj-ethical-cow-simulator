@@ -23,7 +23,7 @@ public class Factory : MonoBehaviour
 		while (true) {
 			yield return new WaitForSeconds(1/productionRate);
 			productionRate += 0.02f;
-			GameObject cow = Instantiate(cowPrefab, new Vector3(-4.3f, 0.4f, 3.7f), Quaternion.Euler(0, 90, 0));
+			GameObject cow = Instantiate(cowPrefab, transform.position, Quaternion.Euler(0, 90, 0));
 			cow.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, -5f);
 		}
 	}
