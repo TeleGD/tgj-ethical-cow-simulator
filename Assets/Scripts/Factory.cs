@@ -6,7 +6,7 @@ public class Factory : MonoBehaviour
 {
 	public GameObject cowPrefab; 
 	//Production rate in Cows/seconds
-	private float productionRate = 0.5f;
+	private float productionRate = 0.2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,7 @@ public class Factory : MonoBehaviour
 	IEnumerator produceCows() {
 		while (true) {
 			yield return new WaitForSeconds(1/productionRate);
+			productionRate += 0.02f;
 			GameObject cow = Instantiate(cowPrefab, new Vector3(-4.3f, 0.4f, 3.7f), Quaternion.Euler(0, 90, 0));
 			cow.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, -5f);
 		}
