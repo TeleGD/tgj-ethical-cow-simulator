@@ -14,9 +14,14 @@ public class CowIA : MonoBehaviour
 
 	private void Update()
 	{
+		if(transform.position.y < -20)
+		{
+			GameManager.instance.FallenCow();
+			Destroy(gameObject);
+		}
 	}
 
-		IEnumerator RepeatJump()
+	IEnumerator RepeatJump()
 	{
 		while (true)
 		{

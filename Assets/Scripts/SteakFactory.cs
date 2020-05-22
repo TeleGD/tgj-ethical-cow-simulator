@@ -8,6 +8,7 @@ public class SteakFactory : MonoBehaviour
     {
         if (other.CompareTag("Cow"))
         {
+            GameManager.instance.AddSteak();
             Destroy(other.gameObject);
         }
     }

@@ -19,11 +19,14 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         body = GetComponent<Rigidbody>();
-        defaultCameraRotation = Camera.main.transform.eulerAngles;
+        defaultCameraRotation = new Vector3(50, 0, 0);
     }
 
     private void Update()
     {
+        if (!GameManager.gameStarted)
+            return;
+
         //attrape vache
         if(Input.GetButtonDown("Jump"))
         {
@@ -87,6 +90,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameManager.gameStarted)
+            return;
+
         Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         if(dir.sqrMagnitude > 1)
             dir.Normalize();
