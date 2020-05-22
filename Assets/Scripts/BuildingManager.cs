@@ -24,8 +24,9 @@ public class BuildingManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit) && hit.transform.CompareTag("Buildable"))
         {
             ghostFence.position = hit.point;
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && GameManager.instance.steakCount >= 3)
             {
+                GameManager.instance.RemoveSteaks(3);
                 Instantiate(fence, hit.point, ghostFence.rotation);
             }
         }

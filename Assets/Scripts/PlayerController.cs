@@ -16,8 +16,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 defaultCameraRotation;
     private Vector3 cameraOffset;
 
+    public static PlayerController instance;
+
     private void Start()
     {
+        instance = this;
         body = GetComponent<Rigidbody>();
         defaultCameraRotation = new Vector3(50, 0, 0);
     }
@@ -86,6 +89,11 @@ public class PlayerController : MonoBehaviour
         }
 
         Time.timeScale = Input.GetKey(KeyCode.Alpha1) ? 5 : 1;
+    }
+
+    public void ReleaseCow()
+    {
+        grabbedCow = null;
     }
 
     private void FixedUpdate()

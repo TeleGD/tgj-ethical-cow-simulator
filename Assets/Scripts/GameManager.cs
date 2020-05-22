@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
 
     public Text scoreDisplay;
 
-    private int steakCount = 0;
-    private int deadCows = 0;
+    public int steakCount = 0;
+    public int deadCows = 0;
 
     private Vector3 gameCamPos;
     private Quaternion gameCamRot;
@@ -46,6 +46,12 @@ public class GameManager : MonoBehaviour
     public void AddSteak()
     {
         steakCount++;
+        UpdateUI();
+    }
+
+    public void RemoveSteaks(int amount)
+    {
+        steakCount -= amount;
         UpdateUI();
     }
 
