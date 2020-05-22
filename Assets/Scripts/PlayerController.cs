@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
         if(transform.position.y < -20)
         {
             transform.position = Vector3.up * 10;
+            grabbedCow = null;
         }
     }
 
