@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public float friction = 10;
     private Rigidbody grabbedCow;
 
+    public Transform left_arm;
+    public Transform right_arm;
+
     private void Start()
     {
         body = GetComponent<Rigidbody>();   
@@ -45,6 +48,27 @@ public class PlayerController : MonoBehaviour
 
         //animation du joueur
         transform.eulerAngles = new Vector3(-body.velocity.z, 0, body.velocity.x) * 4;
+
+        if (grabbedCow != null)
+        {
+            Vector3 cowDir = transform.position - grabbedCow.transform.position;
+            Vector3 right = Vector3.Cross(Vector3.up, cowDir.normalized);
+
+            Vector3 leftDir = transform.position - right - grabbedCow.transform.position;
+            left_arm.position = transform.position - leftDir / 2;
+            left_arm.rotation = Quaternion.LookRotation(Vector3.up, cowDir);
+            left_arm.localScale = new Vector3(0.2f, leftDir.magnitude / 2, 0.2f);
+
+            Vector3 rightDir = transform.position + right - grabbedCow.transform.position;
+            right_arm.position = transform.position - rightDir / 2;
+            right_arm.rotation = Quaternion.LookRotation(Vector3.up, cowDir);
+            right_arm.localScale = new Vector3(0.2f, rightDir.magnitude / 2, 0.2f);
+        }
+        else
+        {
+            left_arm.localScale = Vector3.zero;
+            right_arm.localScale = Vector3.zero;
+        }
     }
 
     private void FixedUpdate()
@@ -63,7 +87,6 @@ public class PlayerController : MonoBehaviour
                 grabbedCow.AddForce(cowDir.normalized * speed);
                 grabbedCow.AddForce(FlattenVector(-grabbedCow.velocity * friction));
             }
-            
         }
     }
 
