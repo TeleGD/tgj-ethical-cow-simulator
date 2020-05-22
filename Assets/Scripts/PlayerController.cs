@@ -13,9 +13,13 @@ public class PlayerController : MonoBehaviour
     public Transform left_arm;
     public Transform right_arm;
 
+    private Vector3 defaultCameraRotation;
+    private Vector3 cameraOffset;
+
     private void Start()
     {
-        body = GetComponent<Rigidbody>();   
+        body = GetComponent<Rigidbody>();
+        defaultCameraRotation = Camera.main.transform.eulerAngles;
     }
 
     private void Update()
@@ -49,6 +53,8 @@ public class PlayerController : MonoBehaviour
 
         //animation du joueur
         transform.eulerAngles = new Vector3(-body.velocity.z, 0, body.velocity.x) * 4;
+        cameraOffset = Vector3.Lerp(cameraOffset, new Vector3(-body.velocity.z, body.velocity.x, 0) * 0.2f, Time.deltaTime * 4);
+        Camera.main.transform.eulerAngles = defaultCameraRotation + cameraOffset;
 
         if (grabbedCow != null)
         {
