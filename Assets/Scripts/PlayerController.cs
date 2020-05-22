@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -68,6 +69,11 @@ public class PlayerController : MonoBehaviour
         {
             left_arm.localScale = Vector3.zero;
             right_arm.localScale = Vector3.zero;
+        }
+
+        if(transform.position.y < -20)
+        {
+            transform.position = Vector3.up * 10;
         }
     }
 
