@@ -51,6 +51,6 @@ public class GameManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        scoreDisplay.text = "Steaks : " + steakCount + "\nCasulaties : " + deadCows;
+        scoreDisplay.text = "Steaks : " + steakCount + "\nCasualties : " + deadCows;
     }
 }

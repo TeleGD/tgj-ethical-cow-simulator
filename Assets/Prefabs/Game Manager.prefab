@@ -79,7 +79,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Steaks : 0
 
-    Casulaties : 0'
+    Casualties : 0'
 --- !u!114 &5266672576130069288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 3180600276900029970}
   - component: {fileID: 279240327856317436}
   - component: {fileID: 3057432937992165391}
+  - component: {fileID: 4819699456594993050}
   m_Layer: 5
   m_Name: Game Manager
   m_TagString: Untagged
@@ -287,6 +288,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreDisplay: {fileID: 5793643224046371579}
+--- !u!114 &4819699456594993050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3490230033680470142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee8e446c6553a345b25bee44635484e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fence: {fileID: 6462598908038795673, guid: ec6ce9e1fb4b07a4983f976ffc58c648, type: 3}
+  ghostFence: {fileID: 0}
 --- !u!1 &6197394230390884562
 GameObject:
   m_ObjectHideFlags: 0
