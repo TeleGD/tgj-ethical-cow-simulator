@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        print(grabbedCow);
         //attrape vache
         if(Input.GetButtonDown("Jump"))
         {
@@ -82,6 +81,8 @@ public class PlayerController : MonoBehaviour
             transform.position = Vector3.up * 10;
             grabbedCow = null;
         }
+
+        Time.timeScale = Input.GetKey(KeyCode.Alpha1) ? 5 : 1;
     }
 
     private void FixedUpdate()
