@@ -383,7 +383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3489037391362905181}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.93, y: 1, z: -0.03}
+  m_LocalPosition: {x: 2.93, y: 0.5, z: -0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5930571712566766188}
@@ -400,7 +400,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1060370460369662394
 MonoBehaviour:
@@ -416,6 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steackPrefab: {fileID: 5868140480782794749, guid: 0f3345ddbddbb9641abfdf921a8e430f,
     type: 3}
+  bloodpref: {fileID: 0}
 --- !u!1 &4319750278706071502
 GameObject:
   m_ObjectHideFlags: 0
