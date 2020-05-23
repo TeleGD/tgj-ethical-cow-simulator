@@ -5,6 +5,7 @@ using UnityEngine;
 public class SlaughterHouse : MonoBehaviour
 {
 	public GameObject steackPrefab;
+    public ParticleSystem bloodpref;
 
 	private void OnTriggerEnter(Collider other)
     {
@@ -30,10 +31,18 @@ public class SlaughterHouse : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 		ThrowSteak();
+        EmitParticle();
         Destroy(cow);
     }
 
-	public void ThrowSteak()
+    public void EmitParticle()
+    {
+        ParticleSystem blood = Instantiate(bloodpref, transform.parent.GetChild(0).position, Quaternion.Euler(0, 0, 0));
+        blood.Play();
+    }
+
+
+    public void ThrowSteak()
 	{
 		GameObject steak = Instantiate(steackPrefab, transform.parent.GetChild(0).position, Quaternion.Euler(0, 0, 0));
 		steak.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-100, 100) / 100f, 4f, 5f);
