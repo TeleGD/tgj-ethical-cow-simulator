@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
                     if (dist < nearestDist)
                     {
                         grabbedCow = cows[i].GetComponent<Rigidbody>();
-                        dist = nearestDist;
+                        nearestDist = dist;
                     }
                 }
             }
