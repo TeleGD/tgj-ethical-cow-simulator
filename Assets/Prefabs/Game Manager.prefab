@@ -304,7 +304,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fence: {fileID: 6462598908038795673, guid: ec6ce9e1fb4b07a4983f976ffc58c648, type: 3}
-  ghostFence: {fileID: 0}
+  ghostItems: {fileID: 0}
+  canBuild: {fileID: 2100000, guid: 853465e966742d147a39ba23efcfa551, type: 2}
+  cannotBuild: {fileID: 2100000, guid: 67aedff0762ba2c47bdee0a523623b4a, type: 2}
 --- !u!1 &3675560934155905603
 GameObject:
   m_ObjectHideFlags: 0
