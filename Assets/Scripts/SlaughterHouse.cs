@@ -29,13 +29,15 @@ public class SlaughterHouse : MonoBehaviour
             cow.transform.position = Vector3.Lerp(startPos, transform.position + Vector3.right * 3, t);
             yield return new WaitForEndOfFrame();
         }
-		ThrowSteack();
+		ThrowSteak();
         Destroy(cow);
     }
 
-	public void ThrowSteack()
+	public void ThrowSteak()
 	{
-			GameObject steack = Instantiate(steackPrefab, transform.parent.GetChild(0).position, Quaternion.Euler(0, 0, 0));
-			steack.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 5f);
+		GameObject steak = Instantiate(steackPrefab, transform.parent.GetChild(0).position, Quaternion.Euler(0, 0, 0));
+		steak.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-100, 100) / 100f, 4f, 5f);
+        steak.GetComponent<Rigidbody>().angularVelocity = Random.onUnitSphere * 20;
+        Destroy(steak, 5);
 	}
 }
