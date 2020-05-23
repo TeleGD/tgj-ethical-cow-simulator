@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
 {
-    public GameObject fence;
     public Transform ghostItems;
     private bool rotate = false;
     private int currentItem;
+
+    public GameObject[] prefabs;
+    public int[] prices;
 
     public Material canBuild;
     public Material cannotBuild;
@@ -53,7 +55,7 @@ public class BuildingManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit) && hit.transform.CompareTag("Buildable"))
         {
             ghostItems.position = hit.point;
-            if(GameManager.instance.steakCount >= 3)
+            if(GameManager.instance.steakCount >= prices[currentItem])
             {
                 for (int i = 0; i < ghostItems.childCount; i++)
                 {
@@ -62,8 +64,8 @@ public class BuildingManager : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    GameManager.instance.RemoveSteaks(3);
-                    Instantiate(fence, hit.point, ghostItems.rotation);
+                    GameManager.instance.RemoveSteaks(prices[currentItem]);
+                    Instantiate(prefabs[currentItem], hit.point, ghostItems.rotation);
                 }
             }
             else
