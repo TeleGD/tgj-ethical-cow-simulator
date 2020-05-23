@@ -30,7 +30,7 @@ public class SlaughterHouse : MonoBehaviour
             cow.transform.position = Vector3.Lerp(startPos, transform.position + Vector3.right * 3, t);
             yield return new WaitForEndOfFrame();
         }
-		ThrowSteak();
+		Invoke("ThrowSteak", 1.5f);
         EmitParticle();
         Destroy(cow);
     }
