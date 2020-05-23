@@ -38,6 +38,8 @@ public class BuildingManager : MonoBehaviour
             if (currentItem >= ghostItems.childCount)
                 currentItem = 0;
 
+            GameManager.instance.UpdatePrice(prices[currentItem]);
+
             for(int i = 0; i < ghostItems.childCount; i++)
             {
                 ghostItems.GetChild(i).gameObject.SetActive(i == currentItem);

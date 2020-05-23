@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Text scoreDisplay;
 	public Text timeDisplay;
     public Text volumeDisplay;
+    public Text priceDisplay;
 
     public int steakCount = 0;
     public int deadCows = 0;
@@ -34,7 +35,9 @@ public class GameManager : MonoBehaviour
         gameStarted = true;
         scoreDisplay.gameObject.SetActive(true);
         timeDisplay.gameObject.SetActive(true);
+        priceDisplay.gameObject.SetActive(true);
         infinityMode = infinity;
+        UpdatePrice(GetComponent<BuildingManager>().prices[0]);
         Factory.instance.StartGame();
 	}
 
@@ -51,6 +54,9 @@ public class GameManager : MonoBehaviour
 			timeDisplay.text += System.Math.Floor(secondsPlayed / 60) %60 + "m : ";
 			timeDisplay.text += System.Math.Floor(secondsPlayed) % 60 + "s";
 		}
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+            ResetGame();
     }
 
     public void FallenCow()
@@ -59,10 +65,16 @@ public class GameManager : MonoBehaviour
 
         if (!infinityMode && deadCows >= gameOverThreshold)
         {
-            SceneManager.LoadScene(0);
+            ResetGame();
         }
 
         UpdateUI();
+    }
+
+    public void ResetGame()
+    {
+        gameStarted = false;
+        SceneManager.LoadScene(0);
     }
 
     public void AddSteak()
@@ -81,6 +93,11 @@ public class GameManager : MonoBehaviour
     {
         scoreDisplay.text = "Steaks : " + steakCount + "\nCasualties : " + deadCows;
 	}
+
+    public void UpdatePrice(int price)
+    {
+        priceDisplay.text = "Price : " + price;
+    }
 
     public void SetVolume(float vol)
     {
