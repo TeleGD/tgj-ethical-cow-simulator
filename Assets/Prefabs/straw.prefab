@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 4181233152444963808}
   - component: {fileID: 5142477289067291094}
   - component: {fileID: 1468515093721734447}
+  - component: {fileID: 5146892272402515194}
+  - component: {fileID: 3492942139200671573}
   m_Layer: 0
   m_Name: straw
-  m_TagString: Untagged
+  m_TagString: straw
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,3 +80,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5146892272402515194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891115411310340595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aba46ad4e9312ad4aa3a41b6a7c7ad0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &3492942139200671573
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891115411310340595}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4449118899255753756, guid: a49fa9d6f90d399438aa648bcb5f6f4b, type: 3}
