@@ -65,7 +65,7 @@ public class BuildingManager : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     GameManager.instance.RemoveSteaks(prices[currentItem]);
-                    Instantiate(prefabs[currentItem], hit.point, ghostItems.rotation);
+                    Instantiate(prefabs[currentItem], hit.point + ghostItems.GetChild(currentItem).localPosition, ghostItems.rotation);
                 }
             }
             else
@@ -77,6 +77,6 @@ public class BuildingManager : MonoBehaviour
             }
         }
         else
-            ghostItems.position = Vector3.down * 2;
+            ghostItems.position = Vector3.down * 10;
     }
 }
