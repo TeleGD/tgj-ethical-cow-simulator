@@ -614,6 +614,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2141792161435225304, guid: de07d6d13bde5d04299b319f69a5d9a6,
         type: 3}
+    - target: {fileID: 4819699456594993050, guid: 8847bf7aeddd7024fb4a0d0deaa6e99d,
+        type: 3}
+      propertyPath: prices.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819699456594993050, guid: 8847bf7aeddd7024fb4a0d0deaa6e99d,
+        type: 3}
+      propertyPath: prices.Array.data[1]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819699456594993050, guid: 8847bf7aeddd7024fb4a0d0deaa6e99d,
+        type: 3}
+      propertyPath: prices.Array.data[3]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819699456594993050, guid: 8847bf7aeddd7024fb4a0d0deaa6e99d,
+        type: 3}
+      propertyPath: prices.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9067497549811808551, guid: 8847bf7aeddd7024fb4a0d0deaa6e99d,
         type: 3}
       propertyPath: m_AnchorMax.x
