@@ -57,7 +57,7 @@ public class CowIA : MonoBehaviour
 				if (dist < nearestDist)
 				{
 					closestHayStraw = hayStraws[i].GetComponent<Transform>();
-					dist = nearestDist;
+					nearestDist = dist;
 				}
 			}
 		}
